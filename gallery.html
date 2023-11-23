@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .intro {
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            z-index: 30;
+            width: 100%;
+            background-color: #202020;
+        }
+
+        .intro .images-shower {
+            width: 35vw;
+            position: relative;
+            height: fit-content;
+        }
+
+        .intro .introBlock {
+            width: 100%;
+            height: 100%;
+            background-color: #202020;
+            position: absolute;
+            top: 0;
+        }
+
+        #introBlock2 {
+            transform: translateY(100%);
+        }
+
+        .images-shower img {
+            width: 100%;
+            object-fit: contain;
+            transform: scale(1.05);
+        }
+
+        span {
+            display: block;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <div class="images-shower">
+            <span>
+                <img src="01.jpeg" id="introImg" alt="">
+                <div class="introBlock" id="introBlock1"></div>
+                <div class="introBlock" id="introBlock2"></div>
+            </span>
+        </div>
+    </div>
+    <div id="gallery">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    
+
+   
+</body> 
+
+<script>
+    const gallery = document.getElementById("gallery");
+
+    window.onmousemove = (e) => {
+        const mouseX = e.clientX,
+            mouseY = e.clientY;
+
+        const xDecimal = mouseX / window.innerWidth,
+            yDecimal = mouseY / window.innerHeight;
+
+        const maxX = gallery.offsetWidth - window.innerWidth,
+            maxY = gallery.offsetHeight - window.innerHeight;
+
+        const panX = maxX * xDecimal,
+            panY = maxY * yDecimal;
+
+        gsap.to(gallery, {
+            x: -panX,
+            y: -panY,
+            duration: 0.4,
+            ease: "power1.inOut",
+        });
+    };
+
+    const radius = 300,
+        blocks = document.querySelectorAll(".block"),
+        radius2 = radius * radius;
+
+    blocks.forEach((block) => {
+        let b = block.getBoundingClientRect();
+        block.cx = b.left + b.width / 2 + window.pageXOffset;
+        block.cy = b.top + b.height / 2 + window.pageYOffset;
+
+        block.tween = gsap.to(block, {
+            scale: 1.2,
+            ease: "power1.in",
+            paused: true,
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            let i = blocks.length,
+                dx,
+                dy,
+                block;
+
+            while (i--) {
+                block = blocks[i];
+                dx = (block.cx - e.pageX) ** 2;
+                dy = (block.cy - e.pageY) ** 2;
+                block.tween.progress(1 - (dx + dy) / radius2);
+            }
+        });
+    });
+</script>
+<script>
+    let imageShowerElem = document.getElementById("introImg");
+
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min; // Fix the random number generator
+    }
+
+    function changeImage() {
+        imageShowerElem.src = `0${randomNumber(1, 5)}.jpeg`;
+    }
+
+    setInterval(changeImage, 500);
+
+    let introTL = gsap.timeline();
+
+    introTL.to("#introBlock1", {
+        y: "-100%",
+        delay: 1,
+        ease: Power4.easeInOut,
+        duration: 1.5,
+    })
+    introTL.to("#introBlock2", {
+            y: 0,
+            delay: 1, // Adjust the delay for a smoother transition
+            ease: Power4.easeInOut,
+            duration: 1.5,
+        })
+
+
+    introTL.to(".intro", {
+            zIndex: -20,
+            x: "550%",
+            ease: Power2.easeInOut,
+            duration: 2,
+            // opacity:0,
+        })
+
+    introTL.from(".block", {
+            stagger:0.08,
+            opacity: 0,
+            duration: 0.5,
+            scale:0.7,
+            delay:1,
+            ease:Power2.easeInOut,
+
+        },
+            "<"
+        )
+</script>
+
+</html>

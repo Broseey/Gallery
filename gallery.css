@@ -1,0 +1,207 @@
+@font-face {
+    font-family: galleryfont;
+    src: url(./Gamerock.otf);
+}
+body {
+    background: #fff;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    cursor: crosshair;
+    font-family: galleryfont;
+    font-size: 100px;
+}
+
+#gallery {
+    height: 75vmax;
+    width: 95vmax;
+    position: relative;
+}
+
+.block {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    z-index: 1;
+}
+
+.block:hover {
+    z-index: 2;
+}
+
+.block:nth-child(1){
+    top: 0;
+    left: 10%;
+    background: url("./assets/pic1.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.block:nth-child(2) {
+    top: 5%;
+    left: 0%;
+    background: url("./assets/pic2.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(3) {
+    top: 28%;
+    left: 16%;
+    background: url("./assets/pic3.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(4) {
+    top: 40%;
+    left: 60%;
+    background: url("./assets/pic4.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(5) {
+    top: 49%;
+    left: 2%;
+    background: url("./assets/pic5.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(6) {
+    top: 30%;
+    left: 0%;
+    background: url("./assets/pic6.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(7) {
+    top: 21%;
+    left: 46%;
+    background: url("./assets/pic7.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(8) {
+    top: 12%;
+    left: 27%;
+    background: url("./assets/pic8.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(9) {
+    top: 5%;
+    left: 69%;
+    background: url("./assets/pic9.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(10) {
+    top: 26%;
+    left: 64%;
+    background: url("./assets/pic10.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(11) {
+    top: 2%;
+    left: 40%;
+    background: url("./assets/pic11.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(12) {
+    top: 36%;
+    left: 38%;
+    background: url("./assets/pic12.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(13) {
+    top: 20%;
+    left: 90%;
+    background: url("./assets/pic13.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(14) {
+    top: 57%;
+    left: 77%;
+    background: url("./assets/pic14.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(15) {
+    top: 50%;
+    left: 24%;
+    background: url("./assets/pic15.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(16) {
+    top: 45%;
+    left: 50%;
+    background: url("./assets/pic16.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(17) {
+    top: 37%;
+    left: 85%;
+    background: url("./assets/pic17.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(18) {
+    top: -2%;
+    right: 0%;
+    background: url("./assets/pic18.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(19) {
+    top: 6%;
+    left: 22%;
+    background: url("./assets/pic19.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(20) {
+    top: 2%;
+    left: 57%;
+    background: url("./assets/pic20.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(21) {
+    top: 66%;
+    left: 20%;
+    background: url("./assets/pic21.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(22) {
+    top: 65%;
+    left: 45%;
+    background: url("./assets/pic22.jpeg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(23) {
+    top: 65%;
+    left: 88%;
+    background: url("./assets/pic23.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(24) {
+    top: 70%;
+    left: 0;
+    background: url("./assets/pic24.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(25) {
+    top: 65%;
+    left: 60%;
+    background: url("./assets/pic25.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(26) {
+    top: 70%;
+    left: 34%;
+    background: url("./assets/pic26.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+.block:nth-child(27) {
+    top: 25%;
+    left: 80%;
+    background: url("./assets/pic27.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    #gallery {
+        height: 50vmax;
+        width: 80vmax;
+    }
+
+    .block {
+        width: 100px;
+        height: 150px;
+    }
+}
